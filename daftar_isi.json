@@ -1,10 +1,26 @@
 [
   {
-    "judul": "Mengenang Masa Kecil di Kampung",
-    "cuplikan": "Kenangan masa kecil di kampung selalu membekas. Suara ayam, hujan, dan tawa anak-anak...",
-    "penulis": "Mawan Agus Nugroho",
-    "tanggal": "2025-06-01 15:45",
-    "url_artikel": "https://raw.githubusercontent.com/mawann/mawan.cms/main/artikel1.json",
-    "url_gambar": "https://picsum.photos/seed/kampung/600/400"
+    "judul": "Menyulam Mimpi di Tengah Kota",
+    "cuplikan": "Kehidupan di kota besar sering kali memaksa kita berlari, tanpa tahu ke mana tujuan sebenarnya...",
+    "penulis": "Mawan A. Nugroho",
+    "waktu": "2025-06-01 10:30",
+    "url": "artikel1.json",
+    "url_gambar": "https://via.placeholder.com/800x450?text=Mimpi"
+  },
+  {
+    "judul": "Refleksi di Tepi Danau",
+    "cuplikan": "Air danau itu diam, namun menyimpan kejujuran yang tak terucapkan...",
+    "penulis": "Mawan A. Nugroho",
+    "waktu": "2025-05-28 17:15",
+    "url": "artikel2.json",
+    "url_gambar": "https://via.placeholder.com/800x450?text=Danau"
+  },
+  {
+    "judul": "Jejak Langkah di Jalan Kenangan",
+    "cuplikan": "Setiap langkah kaki memiliki cerita. Terkadang bahagia, terkadang getir...",
+    "penulis": "Mawan A. Nugroho",
+    "waktu": "2025-05-20 08:45",
+    "url": "artikel3.json",
+    "url_gambar": ""
   }
 ]
