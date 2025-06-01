@@ -141,6 +141,7 @@
   </footer>
 
   <script>
+    // Selalu akhiri dengan karakter slash.
     const BASE_URL = "https://raw.githubusercontent.com/mawann/mawan.cms/main/";
 
     function toggleMode() {
@@ -152,8 +153,8 @@
       card.className = 'card';
 
       const img = document.createElement('img');
-      img.src = BASE_URL + "/" + data.url_gambar || BASE_URL + "blank.png";
-      img.onerror = () => img.src = BASE_URL + "blank.png";
+      img.src = BASE_URL + "gambar/" + data.url_gambar || BASE_URL + "gambar/blank.png";
+      img.onerror = () => img.src = BASE_URL + "gambar/lank.png";
       card.appendChild(img);
 
       const content = document.createElement('div');
@@ -177,7 +178,7 @@
       area.innerHTML = `
         <h2>${data.judul}</h2>
         <small>${data.penulis} • ${data.waktu}</small>
-        ${data.url_gambar ? `<img src="${BASE_URL + data.url_gambar}" alt="Gambar">` : ''}
+        ${data.url_gambar ? `<img src="${BASE_URL + "gambar/" + data.url_gambar}" alt="Gambar">` : ''}
         <div>${data.isi}</div>
         <p><button onclick="kembali()">← Kembali</button></p>
       `;
@@ -190,7 +191,7 @@
     }
 
     function bacaSelengkapnya(url) {
-      fetch(BASE_URL + url)
+      fetch(BASE_URL + "artikel/" + url)
         .then(res => {
           if (!res.ok) throw new Error('Gagal memuat artikel.');
           return res.json();
