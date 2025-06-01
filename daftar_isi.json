@@ -1,0 +1,18 @@
+[
+  {
+    "judul": "Cara Menanam Pohon",
+    "cuplikan": "Menanam pohon bisa dimulai dari biji atau stek...",
+    "penulis": "Mawan Agus",
+    "tanggal": "2025-05-01 10:00",
+    "url_artikel": "https://raw.githubusercontent.com/username/blogdata/main/artikel1.json",
+    "url_gambar": "https://raw.githubusercontent.com/username/blogdata/main/gambar1.jpg"
+  },
+  {
+    "judul": "Menggambar Dengan Pensil",
+    "cuplikan": "Teknik shading penting untuk menghasilkan kedalaman gambar...",
+    "penulis": "Mawan Agus",
+    "tanggal": "2025-05-02 14:30",
+    "url_artikel": "https://raw.githubusercontent.com/username/blogdata/main/artikel2.json",
+    "url_gambar": ""
+  }
+]
