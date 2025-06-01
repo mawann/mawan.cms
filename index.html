@@ -83,7 +83,7 @@
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">${item.judul}</h5>
               <p class="card-text">${item.cuplikan}</p>
-              <p class="text-muted small mt-auto">${item.penulis} – ${item.tanggal}</p>
+              <p class="text-muted small mt-auto">${item.penulis} – ${item.waktu}</p>
               <button class="btn btn-primary mt-2" onclick="tampilkanArtikel('${item.url_artikel}')">Baca selanjutnya</button>
             </div>
           </div>`;
@@ -101,7 +101,7 @@
         container.innerHTML = `
           <h2>${data.judul}</h2>
           ${data.url_gambar ? `<img src="${data.url_gambar}" class="img-fluid mb-3" alt="Gambar artikel">` : ''}
-          <p class="text-muted">${data.penulis} – ${data.tanggal}</p>
+          <p class="text-muted">${data.penulis} – ${data.waktu}</p>
           <div>${data.isi}</div>
         `;
         document.getElementById('artikel-list').classList.add('d-none');
