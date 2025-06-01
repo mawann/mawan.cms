@@ -152,8 +152,8 @@
       card.className = 'card';
 
       const img = document.createElement('img');
-      img.src = BASE_URL + "/" + data.url_gambar || "https://via.placeholder.com/800x450?text=No+Image";
-      img.onerror = () => img.src = "https://via.placeholder.com/800x450?text=Image+Not+Found";
+      img.src = BASE_URL + "/" + data.url_gambar || BASE_URL + "blank.png";
+      img.onerror = () => img.src = BASE_URL + "blank.png";
       card.appendChild(img);
 
       const content = document.createElement('div');
