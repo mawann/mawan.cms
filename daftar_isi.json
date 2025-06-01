@@ -1,18 +1,10 @@
 [
   {
-    "judul": "Cara Menanam Pohon",
-    "cuplikan": "Menanam pohon bisa dimulai dari biji atau stek...",
-    "penulis": "Mawan Agus",
-    "tanggal": "2025-05-01 10:00",
-    "url_artikel": "https://raw.githubusercontent.com/username/blogdata/main/artikel1.json",
-    "url_gambar": "https://raw.githubusercontent.com/username/blogdata/main/gambar1.jpg"
-  },
-  {
-    "judul": "Menggambar Dengan Pensil",
-    "cuplikan": "Teknik shading penting untuk menghasilkan kedalaman gambar...",
-    "penulis": "Mawan Agus",
-    "tanggal": "2025-05-02 14:30",
-    "url_artikel": "https://raw.githubusercontent.com/username/blogdata/main/artikel2.json",
-    "url_gambar": ""
+    "judul": "Mengenang Masa Kecil di Kampung",
+    "cuplikan": "Kenangan masa kecil di kampung selalu membekas. Suara ayam, hujan, dan tawa anak-anak...",
+    "penulis": "Mawan Agus Nugroho",
+    "tanggal": "2025-06-01 15:45",
+    "url_artikel": "https://raw.githubusercontent.com/mawann/mawan.cms/main/artikel1.json",
+    "url_gambar": "https://picsum.photos/seed/kampung/600/400"
   }
 ]
