@@ -1,125 +1,196 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Blog Mawan</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mawan il Letterato (MiL)</title>
   <style>
-    body.dark-mode {
-      background-color: #121212;
-      color: #e0e0e0;
+    :root {
+      --bg-light: #ffffff;
+      --bg-dark: #121212;
+      --text-light: #000000;
+      --text-dark: #ffffff;
     }
-    body.dark-mode .card {
-      background-color: #1e1e1e;
-      border-color: #333;
+
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      transition: background 0.3s, color 0.3s;
     }
-    body.dark-mode .card-title,
-    body.dark-mode .card-text,
-    body.dark-mode .text-muted {
-      color: #e0e0e0 !important;
+
+    body.dark {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
     }
-    #mode-toggle {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      z-index: 1000;
+
+    header {
+      padding: 1rem;
+      text-align: center;
     }
-    .card-img-top-wrapper {
-      aspect-ratio: 16 / 9;
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
       overflow: hidden;
-      background-color: #e0e0e0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s;
     }
-    .card-img-top {
+
+    body.dark .card {
+      background: rgba(40, 40, 40, 0.9);
+    }
+
+    .card img {
       width: 100%;
-      height: 100%;
+      aspect-ratio: 16/9;
       object-fit: cover;
+      background: #ccc;
+    }
+
+    .card-content {
+      padding: 1rem;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    .card small {
+      color: gray;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      margin-bottom: 0.5rem;
+    }
+
+    .card button {
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .card button:hover {
+      background-color: #005fa3;
+    }
+
+    .mode-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .artikel-lengkap {
+      max-width: 720px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .artikel-lengkap img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      margin: 1rem 0;
     }
   </style>
 </head>
 <body>
-  <button id="mode-toggle" class="btn btn-outline-secondary btn-sm">🌙 Mode Gelap</button>
-
-  <div class="container py-4">
-    <h1 class="mb-4 text-center">Blog Mawan</h1>
-    <div id="artikel-list" class="row gy-4"></div>
-
-    <div id="artikel-lengkap" class="d-none">
-      <button onclick="tampilkanDaftar()" class="btn btn-secondary mb-3">← Kembali ke Beranda</button>
-      <div id="konten-lengkap"></div>
-    </div>
+  <div class="mode-toggle">
+    <button onclick="toggleMode()">🌙/☀️</button>
   </div>
+  <header>
+    <h1>Mawan il Letterato (MiL)</h1>
+    <p>Kumpulan renungan dan cerita kehidupan</p>
+  </header>
+  <main id="beranda" class="container"></main>
+  <div id="artikel" class="artikel-lengkap" style="display:none;"></div>
 
   <script>
-    const daftarIsiURL = 'https://raw.githubusercontent.com/mawann/mawan.cms/refs/heads/main/daftar_isi.json';
+    const BASE_URL = "https://raw.githubusercontent.com/mawann/mawan.cms/main/";
 
-    async function ambilDaftarArtikel() {
-      try {
-        const res = await fetch(daftarIsiURL);
-        const data = await res.json();
-        tampilkanDaftar(data);
-      } catch (e) {
-        alert("Gagal memuat daftar isi.");
-      }
+    function toggleMode() {
+      document.body.classList.toggle('dark');
     }
 
-    function tampilkanDaftar(data = []) {
-      document.getElementById('artikel-lengkap').classList.add('d-none');
-      const container = document.getElementById('artikel-list');
-      container.innerHTML = '';
+    function buatKartu(data) {
+      const card = document.createElement('div');
+      card.className = 'card';
 
-      data.forEach(item => {
-        const col = document.createElement('div');
-        col.className = 'col-12 col-md-6 col-lg-4';
+      const img = document.createElement('img');
+      img.src = data.url_gambar || "https://via.placeholder.com/800x450?text=No+Image";
+      img.onerror = () => img.src = "https://via.placeholder.com/800x450?text=Image+Not+Found";
+      card.appendChild(img);
 
-        col.innerHTML = `
-          <div class="card h-100 shadow-sm">
-            <div class="card-img-top-wrapper">
-              <img src="${item.url_gambar || 'https://via.placeholder.com/600x338?text=No+Image'}" 
-                   class="card-img-top" 
-                   alt="Gambar artikel"
-                   onerror="this.onerror=null; this.src='https://via.placeholder.com/600x338?text=No+Image';" />
-            </div>
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">${item.judul}</h5>
-              <p class="card-text">${item.cuplikan}</p>
-              <p class="text-muted small mt-auto">${item.penulis} – ${item.waktu}</p>
-              <button class="btn btn-primary mt-2" onclick="tampilkanArtikel('${item.url_artikel}')">Baca selanjutnya</button>
-            </div>
-          </div>`;
-        container.appendChild(col);
+      const content = document.createElement('div');
+      content.className = 'card-content';
+
+      content.innerHTML = `
+        <h2>${data.judul}</h2>
+        <small>${data.penulis} • ${data.waktu}</small>
+        <p>${data.cuplikan}</p>
+        <button onclick="bacaSelengkapnya('${data.url}')">Baca selengkapnya</button>
+      `;
+
+      card.appendChild(content);
+      return card;
+    }
+
+    function tampilkanArtikelLengkap(data) {
+      const area = document.getElementById('artikel');
+      const beranda = document.getElementById('beranda');
+      beranda.style.display = "none";
+      area.innerHTML = `
+        <h2>${data.judul}</h2>
+        <small>${data.penulis} • ${data.waktu}</small>
+        ${data.url_gambar ? `<img src="${data.url_gambar}" alt="Gambar">` : ''}
+        <div>${data.isi}</div>
+        <p><button onclick="kembali()">← Kembali</button></p>
+      `;
+      area.style.display = "block";
+    }
+
+    function kembali() {
+      document.getElementById('artikel').style.display = "none";
+      document.getElementById('beranda').style.display = "grid";
+    }
+
+    function bacaSelengkapnya(url) {
+      fetch(BASE_URL + url)
+        .then(res => {
+          if (!res.ok) throw new Error('Gagal memuat artikel.');
+          return res.json();
+        })
+        .then(data => tampilkanArtikelLengkap(data))
+        .catch(err => alert(err.message));
+    }
+
+    fetch(BASE_URL + "daftar_isi.json")
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('beranda');
+        data.forEach(item => {
+          container.appendChild(buatKartu(item));
+        });
+      })
+      .catch(err => {
+        document.getElementById('beranda').innerHTML = "<p>Gagal memuat daftar artikel.</p>";
       });
-
-      container.classList.remove('d-none');
-    }
-
-    async function tampilkanArtikel(url) {
-      try {
-        const res = await fetch(url);
-        const data = await res.json();
-        const container = document.getElementById('konten-lengkap');
-        container.innerHTML = `
-          <h2>${data.judul}</h2>
-          ${data.url_gambar ? `<img src="${data.url_gambar}" class="img-fluid mb-3" alt="Gambar artikel">` : ''}
-          <p class="text-muted">${data.penulis} – ${data.waktu}</p>
-          <div>${data.isi}</div>
-        `;
-        document.getElementById('artikel-list').classList.add('d-none');
-        document.getElementById('artikel-lengkap').classList.remove('d-none');
-      } catch (e) {
-        alert("Gagal memuat artikel.");
-      }
-    }
-
-    // Dark/Light mode toggle
-    const toggleBtn = document.getElementById('mode-toggle');
-    toggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      const dark = document.body.classList.contains('dark-mode');
-      toggleBtn.textContent = dark ? '☀️ Mode Terang' : '🌙 Mode Gelap';
-    });
-
-    ambilDaftarArtikel();
   </script>
 </body>
 </html>
