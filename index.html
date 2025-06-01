@@ -158,7 +158,7 @@
       area.innerHTML = `
         <h2>${data.judul}</h2>
         <small>${data.penulis} • ${data.waktu}</small>
-        ${data.url_gambar ? `<img src="${data.url_gambar}" alt="Gambar">` : ''}
+        ${data.url_gambar ? `<img src="${BASE_URL + data.url_gambar}" alt="Gambar">` : ''}
         <div>${data.isi}</div>
         <p><button onclick="kembali()">← Kembali</button></p>
       `;
