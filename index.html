@@ -133,7 +133,7 @@
       card.className = 'card';
 
       const img = document.createElement('img');
-      img.src = data.url_gambar || "https://via.placeholder.com/800x450?text=No+Image";
+      img.src = BASE_URL + "/" + data.url_gambar || "https://via.placeholder.com/800x450?text=No+Image";
       img.onerror = () => img.src = "https://via.placeholder.com/800x450?text=Image+Not+Found";
       card.appendChild(img);
 
