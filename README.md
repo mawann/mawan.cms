@@ -20,4 +20,10 @@ sudo ngins -x reload
 ```
 Ganti *username* dan *domain.com* dengan kondisi yang ada di server anda.
 
+Bila terjadi perbaikan kode di repository github.com/mawann/mawan.cms dan anda ingin mendapatkan versi terbaru, maka sila ketik:
+```
+cd /home/username/domain.com/mawan.cms
+git pull
+```
+
 (C) Mawan A. Nugroho. 
