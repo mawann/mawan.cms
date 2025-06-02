@@ -20,7 +20,8 @@ sudo ln -s /etc/nginx/sites-available/domain.com /etc/nginx/sites-enabled/domain
 sudo nginx -t
 sudo ngins -s reload
 ```
-Ganti *username* dan *domain.com* dengan kondisi yang ada di server anda.
+Ganti *username* dan *domain.com* dengan kondisi yang ada di server anda.  
+Pastikan Nginx telah terpasang di system. Bila belum, lakukan instalasi misalkan dengan perintah ```apt -y install nginx``` atau ```dnf -y install nginx```.
 
 Bila terjadi perbaikan kode di repository github.com/mawann/mawan.cms dan anda ingin mendapatkan versi terbaru, maka sila ketik:
 ```
