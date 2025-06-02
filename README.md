@@ -31,4 +31,6 @@ git pull
 ```
 Sebelum menjalankan perintah di atas, sebaiknya buat dulu backup karena data di server anda mungkin akan ditimpa oleh data dari Github.
 
+Demo: https://mil.my.id
+
 (C) Mawan A. Nugroho. 
