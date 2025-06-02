@@ -21,7 +21,8 @@ sudo nginx -t
 sudo nginx -s reload
 ```
 Ganti *username* dan *domain.com* dengan kondisi yang ada di server anda.  
-Pastikan Nginx telah terpasang di system. Bila belum, lakukan instalasi misalkan dengan perintah ```apt -y install nginx``` atau ```dnf -y install nginx```.
+Pastikan Nginx telah terpasang di system. Bila belum, lakukan instalasi misalkan dengan perintah ```apt -y install nginx``` atau ```dnf -y install nginx```.  
+Anda juga boleh memakai Apache atau web server lain.
 
 Bila terjadi perbaikan kode di repository github.com/mawann/mawan.cms dan anda ingin mendapatkan versi terbaru, maka sila ketik:
 ```
