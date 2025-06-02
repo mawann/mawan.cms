@@ -18,7 +18,7 @@ sudo cp mawan.cms/nginx.conf /etc/nginx/sites-available/domain.com
 sudo vim /etc/nginx/sites-available/domain.com
 sudo ln -s /etc/nginx/sites-available/domain.com /etc/nginx/sites-enabled/domain.com
 sudo nginx -t
-sudo ngins -s reload
+sudo nginx -s reload
 ```
 Ganti *username* dan *domain.com* dengan kondisi yang ada di server anda.  
 Pastikan Nginx telah terpasang di system. Bila belum, lakukan instalasi misalkan dengan perintah ```apt -y install nginx``` atau ```dnf -y install nginx```.
