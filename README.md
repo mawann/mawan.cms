@@ -1,4 +1,4 @@
-# MAWAN.CMS
+# MAWAN CMS
 
 * Ini adalah *Static CMS* yang tidak perlu pemrograman di sisi server dan tidak perlu database, yang berarti tidak perlu PHP, Node.js, PostgreSQL dan MySQL.
 * Hanya perlu upload 1 file bernama index.html karena datanya dapat berada di mana pun, termasuk di Github.
