@@ -16,7 +16,7 @@ git clone https://github.com/mawann/mawan.cms.git
 sudo cp mawan.cms/nginx.conf /etc/nginx/sites-available/domain.com
 sudo vim /etc/nginx/sites-available/domain.com
 sudo ln -s /etc/nginx/sites-available/domain.com /etc/nginx/sites-enabled/domain.com
-sudo ngins -x reload
+sudo ngins -s reload
 ```
 Ganti *username* dan *domain.com* dengan kondisi yang ada di server anda.
 
