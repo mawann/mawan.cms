@@ -28,5 +28,6 @@ Bila terjadi perbaikan kode di repository github.com/mawann/mawan.cms dan anda i
 cd /home/username/domain.com/mawan.cms
 git pull
 ```
+Sebelum menjalankan perintah di atas, sebaiknya buat dulu backup karena data di server anda mungkin akan ditimpa oleh data dari Github.
 
 (C) Mawan A. Nugroho. 
